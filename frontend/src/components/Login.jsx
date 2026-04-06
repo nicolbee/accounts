@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,7 +16,12 @@ const Login = () => {
         username,
         password,
       });
-      setMessage(response.data);
+      // Assume response.data contains user info (username, email, etc.)
+      localStorage.setItem('user', JSON.stringify(response.data));
+      setMessage('Login successful! Redirecting...');
+      setTimeout(() => {
+        navigate('/account');
+      }, 1000);
     } catch (error) {
       setMessage(error.response?.data || 'Login failed');
     }

@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
 import Dashboard from './components/Dashboard';
+import AccountMainPage from './components/AccountMainPage';
 import './App.css';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/account" element={<AccountMainPage />} />
           <Route path="/" element={<h1>Welcome to Account Manager</h1>} />
         </Routes>
       </div>
