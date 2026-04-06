@@ -1,3 +1,7 @@
+# Application Configuration Template
+# Copy this file to application.properties and update with your actual values
+# For local development, use application-local.properties instead
+
 spring.application.name=accounts
 
 # Database Configuration
@@ -17,3 +21,9 @@ spring.mail.username=YOUR_EMAIL@gmail.com
 spring.mail.password=YOUR_APP_PASSWORD
 spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=true
+
+# Instructions:
+# 1. Copy this file to application.properties
+# 2. Replace YOUR_DB_USERNAME, YOUR_DB_PASSWORD, etc. with actual values
+# 3. For better security, use environment variables or application-local.properties
+# 4. See ENVIRONMENT_SETUP.md for detailed instructions
