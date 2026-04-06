@@ -70,3 +70,35 @@ Set the variables at system level or in your deployment platform (Heroku, AWS, e
 - `DB_PASSWORD`: **required** - must be set
 - `MAIL_USERNAME`: **required** - must be set
 - `MAIL_PASSWORD`: **required** - must be set
+
+## Configuration Details
+
+### How It Works
+
+The `application.properties` file uses:
+```properties
+spring.config.import=optional:classpath:application-local.properties
+```
+
+This means:
+- `optional:` - The file is not required (app starts even if missing)
+- `classpath:` - Looks for the file in `src/main/resources`
+- `application-local.properties` - The local configuration file
+
+## Troubleshooting
+
+### "Config data resource does not exist" Error
+
+If you get this error, it means the `application-local.properties` file is missing. Solutions:
+
+1. **Create the file:**
+   ```bash
+   # Copy from example
+   cp src/main/resources/application-local.properties.example src/main/resources/application-local.properties
+   ```
+
+2. **Use environment variables instead:**
+   Set the required environment variables and the app will work without the local file.
+
+3. **For production:**
+   Set environment variables in your deployment platform.
