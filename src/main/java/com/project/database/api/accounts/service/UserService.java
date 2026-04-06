@@ -1,13 +1,15 @@
 package com.project.database.api.accounts.service;
 
-import com.project.database.api.accounts.model.User;
-import com.project.database.api.accounts.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.project.database.api.accounts.model.User;
+import com.project.database.api.accounts.repository.UserRepository;
 
 @Service
 public class UserService {
