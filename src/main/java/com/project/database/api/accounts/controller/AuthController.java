@@ -29,7 +29,7 @@ public class AuthController {
     public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
         try {
             User user = userService.registerUser(request.getUsername(), request.getEmail(), request.getPassword());
-            return ResponseEntity.ok("User registered successfully");
+            return ResponseEntity.ok(user.getUsername() + " - User registered successfully");
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
