@@ -3,6 +3,8 @@ package com.project.database.api.accounts.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -61,5 +63,17 @@ public class AuthController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
-    }     
+    }    
+    
+    
+    @GetMapping("/accounts/{username}")
+    public ResponseEntity<?> findbyusername(@PathVariable String username) {
+        try {
+            return userService.findByUsername(username)
+                .<ResponseEntity<?>>map(user -> ResponseEntity.ok(user))
+                .orElseGet(() -> ResponseEntity.badRequest().body("User not found"));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }
